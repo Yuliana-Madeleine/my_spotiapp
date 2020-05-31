@@ -1,5 +1,5 @@
 <app-loading *ngIf = "loadingArtist" class = "m-5"></app-loading>
-<div class = row *ngIf = "!loadingArtist">
+<div class = "row animated fadeIn" *ngIf = "!loadingArtist">
     <div class = "col-2">
         <img [src] = "artista.images[0].url" class = "img-thumbnail img-circle">
     </div>
@@ -16,4 +16,28 @@
         Regresar
       </button>
     </div>
+</div>
+<div class = "row m-5">
+  <div class = "col">
+    <table class = "table">
+        <thead>
+          <th>Foto</th>
+          <th>Album</th>
+          <th>Canción</th>
+          <th>Vista Previa</th>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let track of topTracks" >
+            <td>
+                <img [src] = "track.album.images | noimage" alt = "" class = "img-thumb"/>
+            </td>
+            <td>{{track.album.name}}</td>
+            <td>{{track.name}}</td>
+            <td>
+                <audio [src] = "track.preview_url" controls></audio>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
 </div>
