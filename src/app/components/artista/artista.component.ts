@@ -26,6 +26,7 @@ export class ArtistaComponent {
     this.spotify.getArtista(id)
     .subscribe(artist => {
       this.artista = artist;
+      console.log("Artista:", this.artista);
       this.loadingArtist = false;
       console.log('Artista info:' + this.artista);
     });
